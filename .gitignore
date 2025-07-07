@@ -1,0 +1,6 @@
+*.db
+.env
+.idea/
+tmp/
+tmp_*/
+__pycached__/
