@@ -1,9 +1,9 @@
 import sqlite3
 from typing import Dict, List, Type, Tuple, Any, Sequence, Iterable
 
-from uniquery import logger, UniQuerySessionBase, TransactionBase, UniQueryTableBase, UniQueryModelBase
-from exceptions import *
-from utils import ModelGeneratorBase
+from .uniquery import logger, UniQuerySessionBase, TransactionBase, UniQueryTableBase, UniQueryModelBase
+from .exceptions import *
+from .utils import ModelGeneratorBase
 
 
 class TransactionMode:

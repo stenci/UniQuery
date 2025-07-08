@@ -1,13 +1,14 @@
 import os
 import shutil
 import sqlite3
+import sys
 import time
 from pprint import pformat
 
 import pytest
 
-from exceptions import RenamedAttributeNotFound
-from uniquery_sqlite import UniQuerySession, TransactionMode, MissingId, ModelGenerator, logger
+from uniquery.exceptions import RenamedAttributeNotFound
+from uniquery.uniquery_sqlite import UniQuerySession, TransactionMode, MissingId, ModelGenerator, logger
 
 # The module tmp_sqlite.car_dealership_models does not exist yet. It is
 # generated together with the test database by the first test and
@@ -29,6 +30,8 @@ def setup_and_teardown():
         shutil.rmtree('tmp_sqlite')
     os.makedirs('tmp_sqlite')
 
+    sys.path.insert(0, '.')
+
     yield
 
     # Unfortunately, deleting the file at this stage sometimes does not work. Even the code below may
@@ -48,6 +51,7 @@ def setup_and_teardown():
     #
     # os.unlink('file.db')
 
+    # Comment out the next lines to prevent the temporary folder deletion and inspect the generated module
     try:
         shutil.rmtree('tmp_sqlite')
     except PermissionError:

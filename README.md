@@ -67,11 +67,20 @@ Database design is best handled using tools like **DataGrip** or **Azure Data St
 
 ## Installation
 
-Install via pip from GitHub:
+Install for SQLite only:
+```bash
+pip install uniquery
+```
 
-   ```bash
-   pip install git+https://github.com/stenci/UniQuery.git
-   ```
+Install for Postgres:
+```bash
+pip install uniquery[postgres]
+```
+
+Install via pip from GitHub:
+```bash
+pip install git+https://github.com/stenci/UniQuery.git
+```
 
 ## Getting Started
 
@@ -86,7 +95,7 @@ Design and create your database schema using tools like **DataGrip**, **Azure Da
 Run the `generate_models()` function to introspect the database and generate a Python module with ORM model classes and schema metadata:
 
 ```python
-from uniquery_sqlite import ModelGenerator
+from uniquery.uniquery_sqlite import ModelGenerator
 ModelGenerator.generate_models("path/to/your_database.sqlite", "my_models.py")
 ```
 
@@ -116,7 +125,7 @@ print(q.cars[0].make)
 
 - `q.cars` is a list of `Car` instances.
 - `q.cars_dict` maps primary keys (e.g. car IDs) to `Car` objects.
-- Relationships like `.clients` on each car will only be populated if your query joins the `clients` table — see the Quick Start for an example.
+- Relationships like `.clients` on each car will only be populated if your query joins the `clients` table — see the [Overview](#overview) for an example.
 
 ### Step 5 (Optional): Regenerate Models After Schema Changes
 

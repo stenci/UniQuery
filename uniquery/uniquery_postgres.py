@@ -3,9 +3,9 @@ import re
 import psycopg2, psycopg2.extras
 from typing import Dict, List, Type, Tuple, Any, Sequence, Iterable
 
-from uniquery import logger, UniQuerySessionBase, TransactionBase, UniQueryTableBase, UniQueryModelBase
-from exceptions import *
-from utils import ModelGeneratorBase
+from .uniquery import logger, UniQuerySessionBase, TransactionBase, UniQueryTableBase, UniQueryModelBase
+from .exceptions import *
+from .utils import ModelGeneratorBase
 
 
 class ModelGenerator(ModelGeneratorBase):
