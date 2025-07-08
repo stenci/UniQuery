@@ -3,8 +3,8 @@ import os
 import re
 from typing import List
 
-from exceptions import MultiplePrimaryKeys, RenamedAttributeNotFound
-from string_utils import to_singular, to_plural, to_camel_case
+from .exceptions import MultiplePrimaryKeys, RenamedAttributeNotFound
+from .string_utils import to_singular, to_plural, to_camel_case
 
 
 class ModelGeneratorBase:
@@ -233,11 +233,11 @@ class ModelGeneratorBase:
         rows.append('# endregion')
 
         rows.append('from typing import Dict, Any, List, Tuple')
-        rows.append('from uniquery import RelationOne, RelationMany, RelationManyMany')
+        rows.append('from uniquery.uniquery import RelationOne, RelationMany, RelationManyMany')
         if cls.additional_imports():
-            rows.append(f'from uniquery_{dialect} import UniQuerySession, UniQueryTable, UniQueryModel, Transaction, ' + ','.join(cls.additional_imports()))
+            rows.append(f'from uniquery.uniquery_{dialect} import UniQuerySession, UniQueryTable, UniQueryModel, Transaction, ' + ','.join(cls.additional_imports()))
         else:
-            rows.append(f'from uniquery_{dialect} import UniQuerySession, UniQueryTable, UniQueryModel, Transaction')
+            rows.append(f'from uniquery.uniquery_{dialect} import UniQuerySession, UniQueryTable, UniQueryModel, Transaction')
         if cls.require_import_datetime:
             rows.append('from datetime import datetime')
         rows.append(' ')

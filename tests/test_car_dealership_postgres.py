@@ -1,5 +1,6 @@
 import os
 import shutil
+import sys
 import time
 from pprint import pformat
 
@@ -7,8 +8,8 @@ import psycopg2
 import pytest
 from dotenv import load_dotenv
 
-from exceptions import RenamedAttributeNotFound
-from uniquery_postgres import UniQuerySession, ModelGenerator, MissingId, logger
+from uniquery.exceptions import RenamedAttributeNotFound
+from uniquery.uniquery_postgres import UniQuerySession, ModelGenerator, MissingId, logger
 
 # The module tmp_postgres.car_dealership_models does not exist yet. It is
 # generated together with the test database by the first test and
@@ -38,8 +39,11 @@ def setup_and_teardown():
         shutil.rmtree('tmp_postgres')
     os.makedirs('tmp_postgres', exist_ok=True)
 
+    sys.path.insert(0, '.')
+
     yield
 
+    # Comment out the next line to prevent the temporary folder deletion and inspect the generated module
     shutil.rmtree('tmp_postgres')
 
 

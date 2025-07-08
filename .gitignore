@@ -3,4 +3,7 @@
 .idea/
 tmp/
 tmp_*/
-__pycached__/
+__pycache__/
+*.egg-info/
+dist/
+build/

@@ -116,7 +116,7 @@ print(q.cars[0].make)
 
 - `q.cars` is a list of `Car` instances.
 - `q.cars_dict` maps primary keys (e.g. car IDs) to `Car` objects.
-- Relationships like `.clients` on each car will only be populated if your query joins the `clients` table — see the Quick Start for an example.
+- Relationships like `.clients` on each car will only be populated if your query joins the `clients` table — see the [Overview](#overview) for an example.
 
 ### Step 5 (Optional): Regenerate Models After Schema Changes
 

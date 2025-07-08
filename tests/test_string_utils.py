@@ -1,4 +1,4 @@
-from string_utils import to_singular, to_plural, to_camel_case
+from uniquery.string_utils import to_singular, to_plural, to_camel_case
 
 
 def test_to_plural():

@@ -7,8 +7,8 @@ from sqlglot.expressions import Table, Column
 from sqlglot.optimizer.qualify import qualify
 from sqlglot.optimizer.scope import build_scope
 
-from exceptions import *
-from string_utils import to_singular, to_camel_case, to_plural
+from .exceptions import *
+from .string_utils import to_singular, to_camel_case, to_plural
 
 logger = logging.getLogger('UniQuery')
 
